@@ -32,19 +32,19 @@ Setting up the network for my home lab: a MikroTik hEX S router, a TP-Link TL-SG
 ssh admin@<router-ip>
 ```
 
-![First SSH login](images/01-first-ssh-login.png)
+![First SSH login](01-first-ssh-login.png)
 
 ### 2. Default configuration
 
 On first login, RouterOS shows the default config. The WAN port (`ether1`) runs a DHCP client and is protected by the firewall. The other ports are bridged as the LAN subnet, with a DHCP server, DNS and NAT turned on.
 
-![Default config](images/02-default-config.png)
+![Default config](02-default-config.png)
 
 ### 3. Change the admin password
 
 The first thing to do on a new router.
 
-![Password changed](images/03-password-changed.png)
+![Password changed](03-password-changed.png)
 
 ### 4. Update RouterOS
 
@@ -55,7 +55,7 @@ The first thing to do on a new router.
 
 The router downloads the update and reboots on its own, which ends the SSH session.
 
-![RouterOS update](images/04-routeros-update.png)
+![RouterOS update](04-routeros-update.png)
 
 ### 5. Check connectivity after the reboot
 
@@ -65,8 +65,8 @@ ping <router-ip>
 
 33/33 packets came back with 0% loss and about 0.5 ms average latency.
 
-![Ping](images/05-ping-router.png)
-![Ping stats](images/06-ping-stats.png)
+![Ping](05-ping-router.png)
+![Ping stats](06-ping-stats.png)
 
 ### 6. Upgrade the RouterBOARD firmware
 
@@ -77,7 +77,7 @@ Updating RouterOS doesn't update the board firmware, so that's a separate step a
 /system reboot
 ```
 
-![Firmware upgrade](images/07-firmware-upgrade.png)
+![Firmware upgrade](07-firmware-upgrade.png)
 
 To confirm the firmware matches RouterOS:
 
@@ -87,7 +87,7 @@ To confirm the firmware matches RouterOS:
 
 `current-firmware` and `upgrade-firmware` both show `7.25.1`.
 
-![Firmware verified](images/08-firmware-verified.png)
+![Firmware verified](08-firmware-verified.png)
 
 ### 7. Set the time zone and save a backup
 
@@ -98,7 +98,7 @@ To confirm the firmware matches RouterOS:
 
 My first try failed with `bad parameter` because I ran both commands on one line. They need to be entered separately. The `clean-setup` backup is a known-good restore point.
 
-![Timezone and backup](images/09-timezone-backup.png)
+![Timezone and backup](09-timezone-backup.png)
 
 ### 8. Check DHCP leases
 
@@ -108,13 +108,13 @@ My first try failed with `bad parameter` because I ran both commands on one line
 
 The switch (`TL-SG108E`) and the server (`laptop`) both got addresses from the router.
 
-![DHCP leases](images/10-dhcp-leases.png)
+![DHCP leases](10-dhcp-leases.png)
 
 ### 9. Switch web UI
 
 I logged into the TL-SG108E at `<switch-ip>`. It shows the router as its default gateway.
 
-![Switch web UI](images/11-switch-webui.png)
+![Switch web UI](11-switch-webui.png)
 
 ---
 
